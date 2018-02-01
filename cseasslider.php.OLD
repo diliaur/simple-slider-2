@@ -1,0 +1,197 @@
+<?php 
+	/*
+	Plugin Name: CSEAS Slider TEST
+	Plugin URI: na
+	Description: A widgetized slider based on the featured image on "featured"-category posts.
+	Version: 1.0
+	Author: Diliaur Tellei
+	Author URI: http://diliaur.github.io
+	License: GPL2
+	*/
+
+/*
+ * Currently a shortcode to test some functions, but will be widgetized later on.
+ * Created: Jan 29, 2018
+ *
+function cslider_shortcode() {
+	$max_posts = 6; // this can be changed if really necessary
+	$args = array(
+		'category_name' => 'Featured',
+		'posts_per_page' => $max_posts
+		//'meta_key' => '_thumnail_id'
+		);
+
+	$my_query = new WP_Query( $args );
+
+	$earliest_post_date = ""; // must be a string... for now. eventually let user choose this range
+
+	if ( $my_query->have_posts() ) :
+		while ( $my_query->have_posts() ) : $my_query->the_post(); // why do I need the_post() ???
+
+			if (strtotime(get_the_date()) > strtotime($earliest_post_date)) { // if post date before a certain set prior date
+				?>
+				<div><?php the_title(); ?></div>
+				<?php
+			} else {
+				//echo "sorry...this post is too old to show";
+			}
+
+			?>
+			<?php
+		endwhile;
+		rewind_posts();
+	else :
+		echo "Sorry, no posts matched your criteria.";
+	endif;
+
+	$test_output = "max posts: " . $max_posts .
+					" | " .
+					"timeline: " . $earliest_post_date;
+	return $test_output;
+
+}
+add_shortcode( 'cslider', 'cslider_shortcode' ); // name of shortcode, then function controlling shortcode
+
+function date_difference($start,$end) {
+	$difference = $start->diff( $end );
+	return $difference;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* We're turning it into a widget bih! */
+
+class CSlider_Widget extends WP_Widget {
+	/*
+	 * Sets up the widget's name, etc.
+	 */
+	public function __construct() {
+		$widget_ops = array(
+			'classname' => 'cslider_widget',
+			'description' = 'A slider using the featured image and other post metadata. User configures what posts show up.'
+			);
+		parent::__construct( 'cslider_widget', 'C Slider Widget', $widget_ops );
+	}
+
+	/*
+	 * Front end. Outputs the content of the widget.
+	 *
+	 * @param array $args 
+	 * @param array $instance
+	 */
+	public function widget( $args, $instance ) {
+
+		echo $args['before_widget']; // begin widget html. these are determined by theme or wp core
+
+		// print title if there is one
+		/*if ($instance['title']) {
+			echo $instance['title'];
+		}
+
+		// assign max posts if there are, else, default is 7
+		if ($instance['max_num_posts']) {
+			$max_num_posts = $instance['max_num_posts'];
+		} else {
+			$max_num_posts = 7;
+		}
+
+		// assign time frame if there is one, else, default is no time frame
+
+		if ($instance['time_frame']) {
+			$time_frame = $instance['time_frame'];
+		} else {
+			$time_frame = "";
+		}
+
+		// process categories if they exist, otherwise, .... default... ?
+		// for testing period, just use 'Featured'
+
+		$categories = 'Featured';
+
+		// construct the query
+
+		$query_args = array(
+			'category_name' => 'Featured',
+			'posts_per_page' => $max_num_posts
+			);
+		$my_query = new WP_Query($query_args);
+
+		// output the posts
+
+		if ( $my_query->have_posts() ) :
+		while ( $my_query->have_posts() ) : $my_query->the_post(); // why do I need the_post() ???
+
+			if (strtotime(get_the_date()) > strtotime($time_frame)) { // if post date before a certain set prior date
+				?>
+				<div><?php the_title(); ?></div>
+				<?php
+			} else {
+				//echo "sorry...this post is too old to show";
+			}
+
+			?>
+			<?php
+		endwhile;
+		rewind_posts();
+		else :
+			echo "Sorry, no posts matched your criteria.";
+		endif;
+
+		$test_output = "max posts: " . $max_posts .
+						" | " .
+						"timeline: " . $earliest_post_date;*/
+
+		echo $args['after_widget']; // end widget html. these are determined by theme or wp core
+	}
+
+	/*
+	 * Back end. Outputs widget form through which user admin can choose config
+	 * and display options.
+	 *
+	 * @param $instance The current saved instance (all options etc) of the widget
+	 */
+	public function form( $instance ) {
+		// form - wp dasboard widget area form
+		echo "This is the title.";
+	}
+
+	public function update( $new_instance, $old_instance ) {
+		// process widget options to be saved
+
+		$instance = $old_instance;
+
+		$instance['title'] = $new_instance['title'];
+		$instance['max_num_posts'] = $new_instance['max_num_posts'];
+		$instance['time_frame'] = $new_instance['time_frame'];
+		$instance['categories'] = $new_instance['categories'];
+
+		return $instance;
+	}
+}
+
+// registering the widget is pretty damn important isn't it
+
+function register_cslider_widget() {
+	register_widget( 'C Slider Widget' );
+}
+add_action('widgets_init', 'register_cslider_widget');
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
