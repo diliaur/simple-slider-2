@@ -31,6 +31,8 @@ class simple_slider_2_widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 
+		echo "Simple Slider 2 Test";
+
 	}
 
 	// update
