@@ -126,6 +126,19 @@ class simple_slider_2_widget extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 
+		$instance = $old_instance;
+
+		$instance['title'] = $new_instance['title'];
+		$instance['max_num_posts'] = $new_instance['max_num_posts'];
+		$instance['time_frame'] = $new_instance['time_frame'];
+
+		// need to do some parsing for categories. first remove whitespace
+		$categories = str_replace(" ", "", $new_instance['categories']);
+
+		// then escape
+		$instance['categories'] = esc_attr($categories);
+
+		return $instance;
 	}
 }
 
