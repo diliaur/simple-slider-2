@@ -1,3 +1,203 @@
-.ss2-note {
-	font-style: italic;
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                                Page setup                                 *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+div {
+	box-sizing: border-box;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                               Containers                                  *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.container { /* bootstrap mod to match theme conditions */
+	max-width: 1140px;
+}
+.cseasss-container-slider {
+	width: 100%;
+	background-color: #eee;
+	overflow: hidden;
+}
+.cseasss-container-slides {
+	width: 75%;
+	float: left;
+	overflow: hidden;
+	position: relative; /* needed for abs posititioning of children */
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                                 Image                                     *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.cseasss-container-slides img {
+	width: 100%;
+	height: auto;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                        Navigation (arrows, dots)                          *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.arrow-left, .arrow-right, .cs-dots {
+	float: left;
+	text-align: center;
+}
+.arrow-left {
+	width:10%;
+}
+.arrow-left:hover, .arrow-right:hover {
+	background-color: #ccc;
+	color: #000;
+}
+.arrow-right {
+	width:10%;
+}
+.cs-dots {
+	width:80%;
+	background-color: #ccc;
+}
+.cs-dots ul {
+	list-style-type: none;
+	padding: 0; margin: 0;
+}
+.cs-dots ul li {
+	display: inline;
+}
+.arrow-left, .arrow-right, .cs-dots {
+	font-size: 15px;
+	color: #ccc;
+	background-color: #000;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                               Miscellaneous                               *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.clearfix-dt {
+	clear:both;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                                Categories                                 *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.categories ul.post-categories {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+.categories ul.post-categories li {
+	display: inline;
+	list-style: none;
+	margin: 0px;
+	padding: 1px 5px;
+	background-color: #ec4838;
+	text-transform: uppercase;
+}
+.categories a:link, .categories a:visited, .categories a:hover, .categories a:active {
+	color: #fff!important; /* force the white on hover just here. hover is #ccc & being controlled in SOME stylestylesheet somewhere */
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                                Excerpt                                    *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.excerpt {
+	background-color: #000;
+	color: #fff;
+	padding: 5px;
+}
+.excerpt p {
+	padding: 0; margin: 0; /* wordpress adds a <p> tag we need to compensate for */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /* for graceful truncation DOESN"T WORK */
+	font-size: 16px;
+	display:block;
+	width:100%;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                                  Titles                                   *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.container-titles {
+	width: 25%;
+	float: left;
+	background-color: #fff;
+	/* height needs to be contingent upon .cseasss-container-slides height */
+}
+.container-titles-no-float { /* for toggle when window resizes below break-point */
+	width: 100%;
+	float: none;
+	background-color: #fff;
+}
+.on-slide-title {
+	display:none;
+}
+.title-and-date {
+	margin-left: 5px; /* no right margin so it's flush with any layout */
+	padding: 5px;
+	border-bottom: 1px solid #eee;
+	overflow: hidden; /* just in case title is too long */
+}
+.title-and-date span {
+	display: block;
+}
+.title-and-date .title {
+	font-size: 14px;
+	word-wrap: break-word!important;
+}
+.date {
+	font-size: 10px;
+	text-transform: uppercase;
+}
+.current { /* Highlighted title tab styling */
+	background-color: #eee;
+	color: #000;
+}
+.prev {
+	/*background-color: green;*/
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *                             Slides ul resets                              *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.slide-list {
+	list-style: none;
+	padding: 0; margin: 0;
+	position: relative;
+}
+.slide-list li .categories {
+	position: absolute;
+	top: 0; left: 0;
+	z-index: 90;
+}
+.slide-list li img {
+	float: left; /* in order for image to go under categories */
+	z-index: 89;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ *           Pause "button" (applied to a span added when testing)           *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.pause {
+	padding: 5px;
+	background-color: #ccc;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #666;
 }
