@@ -29,17 +29,10 @@ class simple_slider_2_widget extends WP_Widget {
 		$time_frame = !empty($instance['time_frame']) ? $instance['time_frame'] : "-1 month"; // default is 1 month in the past
 		$categories = !empty($instance['categories']) ? $instance['categories'] : "";
 
-
 		//////////////
 
 		echo "<hr/> test output section" . "<br/>";
 
-		
-		// use the following line ($this->get_field_name()) bc this is what will
-		//     be output html. avoids collisions with other widgets by providing
-		//     a unique name.
-		echo "title field name via wp: " . $this->get_field_name('title') . "<br/>"; 
-		echo "<br/><br/>";
 		echo "title: " . $title . " | default: New title<br/>";
 		echo "max posts: " . $max_num_posts . " | default: 5<br/>";
 		echo "timeframe: " . $time_frame . " | default : -1 month<br/>";
@@ -91,15 +84,20 @@ class simple_slider_2_widget extends WP_Widget {
 			       <?php checked( $time_frame, "-3 months" ); ?>>
 			       <label>Past 3 months</label><br/>
 			<input type="radio"
+			       value="-6 months"
+			       name="<?php echo esc_attr_e($this->get_field_name('time_frame')); ?>"
+			       <?php checked( $time_frame, "-6 months" ); ?>>
+			       <label>Past 6 months</label><br/>
+			<input type="radio"
 			       value="-1 year"
 			       name="<?php echo esc_attr_e($this->get_field_name('time_frame')); ?>"
 			       <?php checked( $time_frame, "-1 year" ); ?>>
 			       <label>Past year</label><br/>
 			<input type="radio"
-			       value=""
+			       value="-3 years"
 			       name="<?php echo esc_attr_e($this->get_field_name('time_frame')); ?>"
-			       <?php checked( $time_frame, "" ); ?>>
-			       <label>Beginning of time (any date)</label>
+			       <?php checked( $time_frame, "-3 years" ); ?>>
+			       <label>Past 3 years</label>
 		</p>
 
 		<!-- FEATURED CATEGORIES - which category/ies to pull for posts -->
@@ -122,9 +120,44 @@ class simple_slider_2_widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		// add the stylesheet
-		wp_enqueue_style( 'cseas-recent-posts-css', plugins_url( 'style.css', __FILE__ ) );
+		wp_enqueue_style( 'simple-slider-2-css', plugins_url( 'style.css', __FILE__ ) );
 
-		echo "Simple Slider 2 Test";
+		// vars
+		$categories = $instance['categories'];
+		$max_posts = $instance['max_num_posts'];
+		$time_frame = $instance['time_frame'];
+
+		// set up the args for the query
+		$args = array(
+			'category_name' => $categories,
+			'posts_per_page' => $max_posts
+			//'meta_key' => '_thumnail_id'
+			);
+
+		$my_query = new WP_Query( $args );
+
+		//test line
+		echo "<p>showing posts from following categories: " . $categories . " from within " . $time_frame . "</p>";
+
+		if ( $my_query->have_posts() ) :
+			while ( $my_query->have_posts() ) : $my_query->the_post(); // why do I need the_post() ???
+
+				if (strtotime(get_the_date()) > strtotime($time_frame)) { // if post date before a certain set prior date range
+					?>
+					<div><?php the_category(); ?></div>
+					<div><?php the_title(); ?></div>
+					<?php
+				} else {
+					echo "sorry...this post is too old to show<br/>";
+				}
+
+				?>
+				<?php
+			endwhile;
+			rewind_posts();
+		else :
+			echo "Sorry, no posts matched your criteria.";
+		endif;
 
 	}
 
