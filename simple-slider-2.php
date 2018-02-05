@@ -54,7 +54,11 @@ class simple_slider_2_widget extends WP_Widget {
 		<!-- TITLE -->
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_attr_e( 'Title:', 'simple-slider-2' ); ?></label>
-			<input class="widefat" type="text" id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $title; ?>">
+			<input class="widefat" 
+				type="text" 
+				id="<?php echo $this->get_field_id('title'); ?>" 
+				name="<?php echo esc_attr($this->get_field_name('title')); ?>"
+				value="<?php echo $title; ?>">
 		</p>
 
 		<!-- MAX NUMBER OF POSTS -->
@@ -64,6 +68,7 @@ class simple_slider_2_widget extends WP_Widget {
 			<input class="widefat"
 				   type="text"
 				   id="<?php echo esc_attr($this->get_field_id('max_num_posts')); ?>"
+				   name="<?php echo esc_attr($this->get_field_name('max_num_posts')); ?>"
 				   value="<?php echo $max_num_posts; ?>">
 		</p>
 
@@ -105,6 +110,7 @@ class simple_slider_2_widget extends WP_Widget {
 			<input class="widefat"
 				   type="text"
 				   id="<?php echo esc_attr_e($this->get_field_id('categories')); ?>"
+				   name="<?php echo esc_attr($this->get_field_name('categories')); ?>"
 				   value="<?php echo esc_attr($categories); ?>">
 		</p>
 
@@ -134,7 +140,6 @@ class simple_slider_2_widget extends WP_Widget {
 
 		// need to do some parsing for categories. first remove whitespace
 		$categories = str_replace(" ", "", $new_instance['categories']);
-
 		// then escape
 		$instance['categories'] = esc_attr($categories);
 
