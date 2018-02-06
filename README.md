@@ -1,5 +1,4 @@
-# Simple Slider 2
-## A WordPress Slider
+# Simple Slider 2: A WordPress Slider
 
 This slider is based off my [original slider](https://github.com/diliaur/simple-slider). It adds the improvements of a widget (rather than just a shortcode) which allows the user to choose a timeframe for posts, number of posts to show, and multiple categories of post to display.
 
@@ -14,7 +13,11 @@ Just download the repo and unzip it into your Plugins directory. Activate it, se
 
 ## To Do
 
-Currently in the process of porting Todos over from the [original slider](https://github.com/diliaur/simple-slider).
+_Currently in the process of porting Todos over from the [original slider](https://github.com/diliaur/simple-slider)._
+
+[] Change HTML and CSS in accordance with correct plugin slug
+
+## Done
 
 ## Issues
 
