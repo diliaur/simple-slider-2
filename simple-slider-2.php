@@ -10,8 +10,12 @@ License: GPL2
 */
 
 class simple_slider_2_widget extends WP_Widget {
-	// constructor
 
+	/**
+	 *
+	 * Constructor. Sets up the widget.
+	 *
+	 */
 	public function __construct() {
 		$widget_options = array(
 			'classname' => 'simple_slider_2_widget',
@@ -20,27 +24,17 @@ class simple_slider_2_widget extends WP_Widget {
 		parent::__construct('simple_slider_2_widget','Simple Slider 2.0 Widget', $widget_options);
 	}
 
-	// form - back end on admin dash
-
+	/**
+	 *
+	 * Outputs the admin-facing part of the widget. Provides widget options via a form.
+	 * @param $instance The widget data & config options pulled from the database.
+	 */
 	public function form( $instance ) {
 
 		$title = !empty($instance['title']) ? $instance['title'] : "New title";
 		$max_num_posts = !empty($instance['max_num_posts']) ? $instance['max_num_posts'] : 5; // 5 is default
 		$time_frame = !empty($instance['time_frame']) ? $instance['time_frame'] : "-1 month"; // default is 1 month in the past
 		$categories = !empty($instance['categories']) ? $instance['categories'] : "";
-
-		//////////////
-
-		echo "<hr/> test output section" . "<br/>";
-
-		echo "title: " . $title . " | default: New title<br/>";
-		echo "max posts: " . $max_num_posts . " | default: 5<br/>";
-		echo "timeframe: " . $time_frame . " | default : -1 month<br/>";
-		echo "categories: " . $categories . " | default : \"\" <br/>";
-
-		echo "<hr/>";
-
-		/////////
 
 		?>
 
@@ -115,8 +109,12 @@ class simple_slider_2_widget extends WP_Widget {
 		<?php
 	}
 
-	// output
-
+	/**
+	 *
+	 * Outputs the visitor-facing part of the widget. Uses The Loop to show posts.
+	 * @param $args Widget title, description, etc.
+	 * @param $instance The widget data & config options pulled from the database
+	 */
 	public function widget( $args, $instance ) {
 
 		// vars
@@ -187,8 +185,13 @@ class simple_slider_2_widget extends WP_Widget {
 
 	}
 
-	// update
-
+	/**
+	 *
+	 * Saves the new admin configurations to the database.
+	 * @param $new_instance The new options
+	 * @param $old_instance The link to the current instance in the db, to be updated
+	 *
+	 */
 	public function update( $new_instance, $old_instance ) {
 
 		$instance = $old_instance;
