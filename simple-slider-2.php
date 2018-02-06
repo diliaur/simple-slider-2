@@ -1,8 +1,8 @@
 <?php 
 /*
 Plugin Name: Simple Slider 2 
-Plugin URI: na
-Description: s e n d h e l p
+Plugin URI: https://github.com/diliaur/simple-slider-2
+Description: A post slider based upon categories and featured image. Lets you choose time frame for posts to display and max number of post slots.
 Version: 1.0
 Author: Diliaur Tellei
 Author URI: http://diliaur.github.io
