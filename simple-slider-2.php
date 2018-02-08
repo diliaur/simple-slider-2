@@ -132,7 +132,7 @@ class simple_slider_2_widget extends WP_Widget {
 		$my_query = new WP_Query( $args );
 
 		//test line
-		echo "<p>showing posts from following categories: " . $categories . " from within " . $time_frame . "</p>";
+		//echo "<p>showing posts from following categories: " . $categories . " from within " . $time_frame . "</p>";
 
 		//////////////
 
