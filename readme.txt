@@ -24,8 +24,10 @@ Features:
 	- When posts get too old, they drop off & slider adjusts number of slots automatically (no more old posts creeping back up!)
 
 == Installation ==
-1. Upload \"test-plugin.php\" to the \"/wp-content/plugins/\" directory.
-1. Activate the plugin through the \"Plugins\" menu in WordPress.
+1. Download the plugin file directory via GitHub
+2. Unzip the directory
+3. Upload \"simple-slider-2\" directory to the \"/wp-content/plugins/\" directory.
+4. Activate the plugin through the \"Plugins\" menu in WordPress.
 
 == Changelog ==
 

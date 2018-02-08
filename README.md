@@ -13,13 +13,23 @@ Just download the repo and unzip it into your Plugins directory. Activate it, se
 
 ## To Do
 
-_Currently in the process of porting Todos over from the [original slider](https://github.com/diliaur/simple-slider)._
-
 [] Change HTML and CSS in accordance with correct plugin slug
+[] Title font sizes shrink/grow depending on # of slides
+[] Breakpoint - point at which titles collapse underneath the slider (for mobile mostly) (let user decide this? hmm)
+[] Add shortcode back so people can use the slider in posts (if they want)
+[] Add shortcode options to echo widget options
+[] Toggle titles (e.g. just have photo + excerpt, vs full titles) - might make more sense for ppl who want to use the slider within a page (will need to modify shortcode for options)
 
 ## Done
 
 ## Issues
 
+Note: Because this is a rehash of an older slider, it may still have some of the same issues. However, the modification of the slider into a widget may have resolved some issues. They have not been examined yet so can't be ruled out, but because *this* version hasn't been tested in the same way, the issues also won't be ported here. You can read about the previous slider's issues in its [readme](https://github.com/diliaur/simple-slider).
+
 - PHP strtotime() _may_ cause wonky behavior in choosing the time frame, but this is yet to be seen. The time frame is not meant to be super precise, however. It is mostly intended to keep too-old posts from resurfacing.
 - Looks wonky at lower resolutions and on mobile. Need a way to collapse titles underneath slide images. This will be on the todo list.
+
+### Issues from Old Version to Check out
+- JS or CSS throws off behavior of *other* sliders when plugin is active
+- Strange behavior when shortcode used in non-widget areas. Currently don't have a shortcode, so maybe this will be moot
+- jQuery selectors don't allow for multiple iterations of the slider on one page
