@@ -15,12 +15,12 @@ div {
 .container { /* bootstrap mod to match theme conditions */
 	max-width: 1140px;
 }
-.cseasss-container-slider {
+.ss2-container-slider {
 	width: 100%;
 	background-color: #eee;
 	overflow: hidden;
 }
-.cseasss-container-slides {
+.ss2-container-slides {
 	width: 75%;
 	float: left;
 	overflow: hidden;
@@ -32,7 +32,7 @@ div {
  *                                 Image                                     *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.cseasss-container-slides img {
+.ss2-container-slides img {
 	width: 100%;
 	height: auto;
 }
@@ -42,32 +42,32 @@ div {
  *                        Navigation (arrows, dots)                          *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.arrow-left, .arrow-right, .cs-dots {
+.ss2-arrow-left, .ss2-arrow-right, .ss2-nav-dots {
 	float: left;
 	text-align: center;
 }
-.arrow-left {
+.ss2-arrow-left {
 	width:10%;
 }
-.arrow-left:hover, .arrow-right:hover {
+.ss2-arrow-left:hover, .ss2-arrow-right:hover {
 	background-color: #ccc;
 	color: #000;
 }
-.arrow-right {
+.ss2-arrow-right {
 	width:10%;
 }
-.cs-dots {
+.ss2-nav-dots {
 	width:80%;
 	background-color: #ccc;
 }
-.cs-dots ul {
+.ss2-nav-dots ul {
 	list-style-type: none;
 	padding: 0; margin: 0;
 }
-.cs-dots ul li {
+.ss2-nav-dots ul li {
 	display: inline;
 }
-.arrow-left, .arrow-right, .cs-dots {
+.ss2-arrow-left, .ss2-arrow-right, .ss2-nav-dots {
 	font-size: 15px;
 	color: #ccc;
 	background-color: #000;
@@ -78,7 +78,7 @@ div {
  *                               Miscellaneous                               *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.clearfix-dt {
+.ss2-clearfix {
 	clear:both;
 }
 
@@ -87,12 +87,12 @@ div {
  *                                Categories                                 *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.categories ul.post-categories {
+.ss2-categories ul.post-categories {
 	margin: 0;
 	padding: 0;
 	font-size: 12px;
 }
-.categories ul.post-categories li {
+.ss2-categories ul.post-categories li {
 	display: inline;
 	list-style: none;
 	margin: 0px;
@@ -100,7 +100,7 @@ div {
 	background-color: #ec4838;
 	text-transform: uppercase;
 }
-.categories a:link, .categories a:visited, .categories a:hover, .categories a:active {
+.ss2-categories a:link, .ss2-categories a:visited, .ss2-categories a:hover, .ss2-categories a:active {
 	color: #fff!important; /* force the white on hover just here. hover is #ccc & being controlled in SOME stylestylesheet somewhere */
 }
 
@@ -109,12 +109,12 @@ div {
  *                                Excerpt                                    *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.excerpt {
+.ss2-excerpt {
 	background-color: #000;
 	color: #fff;
 	padding: 5px;
 }
-.excerpt p {
+.ss2-excerpt p {
 	padding: 0; margin: 0; /* wordpress adds a <p> tag we need to compensate for */
 	white-space: nowrap;
 	overflow: hidden;
@@ -129,13 +129,13 @@ div {
  *                                  Titles                                   *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.container-titles {
+.ss2-container-titles {
 	width: 25%;
 	float: left;
 	background-color: #fff;
-	/* height needs to be contingent upon .cseasss-container-slides height */
+	/* height needs to be contingent upon .ss2-container-slides height */
 }
-.container-titles-no-float { /* for toggle when window resizes below break-point */
+.ss2-container-titles-no-float { /* for toggle when window resizes below break-point */
 	width: 100%;
 	float: none;
 	background-color: #fff;
@@ -143,20 +143,20 @@ div {
 .on-slide-title {
 	display:none;
 }
-.title-and-date {
+.ss2-title-and-date {
 	margin-left: 5px; /* no right margin so it's flush with any layout */
 	padding: 5px;
 	border-bottom: 1px solid #eee;
 	overflow: hidden; /* just in case title is too long */
 }
-.title-and-date span {
+.ss2-title-and-date span {
 	display: block;
 }
-.title-and-date .title {
+.ss2-title-and-date .title {
 	font-size: 14px;
 	word-wrap: break-word!important;
 }
-.date {
+.ss2-date {
 	font-size: 10px;
 	text-transform: uppercase;
 }
@@ -173,17 +173,17 @@ div {
  *                             Slides ul resets                              *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.slide-list {
+.ss2-slide-list {
 	list-style: none;
 	padding: 0; margin: 0;
 	position: relative;
 }
-.slide-list li .categories {
+.ss2-slide-list li .ss2-categories {
 	position: absolute;
 	top: 0; left: 0;
 	z-index: 90;
 }
-.slide-list li img {
+.ss2-slide-list li img {
 	float: left; /* in order for image to go under categories */
 	z-index: 89;
 }

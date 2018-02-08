@@ -6,10 +6,10 @@ jQuery( document ).ready( function( $ ) {
 	 *																		   *
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-	var NUM_SLIDES = $( '.slide-list > li' ).length;
+	var NUM_SLIDES = $( '.ss2-slide-list > li' ).length;
 	var SLIDE_MAX = NUM_SLIDES - 1;
 	//console.log ("SLIDE_MAX -> " + SLIDE_MAX);
-	var allSlideTitles = $( '.slide-list > li .title-and-date' ); // keeping this out here so others can use it
+	var allSlideTitles = $( '.ss2-slide-list > li .ss2-title-and-date' ); // keeping this out here so others can use it
 	var currentSlide = 0; // begins at 0
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -22,7 +22,7 @@ jQuery( document ).ready( function( $ ) {
 	 * Based on the slides, populate the title container div with titles
 	 */
 	function populateTitles() {
-		$( '.container-titles' ).append(allSlideTitles); // move allSlideTitles to target div
+		$( '.ss2-container-titles' ).append(allSlideTitles); // move allSlideTitles to target div
 	}
 
 	/**
@@ -33,7 +33,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function setTitleHeights() {
 
-		var slideContainerHeight = $( '.cseasss-container-slides' ).height(); // direct height grab
+		var slideContainerHeight = $( '.ss2-container-slides' ).height(); // direct height grab
 		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders (should be v small)
 		var indivTitleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
@@ -43,7 +43,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// assign height to title element class
 		// use innerheight because it takes padding into consideration
-		$( '.title-and-date' ).innerHeight(indivTitleHeight);
+		$( '.ss2-title-and-date' ).innerHeight(indivTitleHeight);
 
 		/*
 		 * Check for width of screen, and place titles underneath
@@ -54,11 +54,11 @@ jQuery( document ).ready( function( $ ) {
 		var minWindowWidth = 1000;
 
 		if ( $( window ).width() < minWindowWidth ) {
-			//$( 'div.container-titles' ).addClass( 'container-titles-no-float' );
-			//$( 'div.container-titles' ).removeClass( 'container-titles' );
+			//$( 'div.ss2-container-titles' ).addClass( 'ss2-container-titles-no-float' );
+			//$( 'div.ss2-container-titles' ).removeClass( 'ss2-container-titles' );
 		} else {
-			//$( 'div.container-titles' ).addClass( 'container-titles' );
-			//$( 'div.container-titles' ).removeClass( 'container-titles-no-float' );
+			//$( 'div.ss2-container-titles' ).addClass( 'ss2-container-titles' );
+			//$( 'div.ss2-container-titles' ).removeClass( 'ss2-container-titles-no-float' );
 		}
 	}
 
@@ -68,9 +68,9 @@ jQuery( document ).ready( function( $ ) {
 	 *
 	 */
 	function generateDots() {
-		$( '.cs-dots' ).append( "<ul>" );
+		$( '.ss2-nav-dots' ).append( "<ul>" );
 		for (var count = 0; count < NUM_SLIDES; count++) {
-			$( '.cs-dots ul' ).append( "<li>&#9633;</>" ); // UNICODE "White Circle" U+25CB
+			$( '.ss2-nav-dots ul' ).append( "<li>&#9633;</>" ); // UNICODE "White Circle" U+25CB
 		}
 	}
 
@@ -86,7 +86,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function manipulateDots(current,previous) {
 		// get dots
-		var dots = $( '.cs-dots ul li' );
+		var dots = $( '.ss2-nav-dots ul li' );
 
 		// use global to turn empty dot into filled dot
 		dots.eq(current).html( "&#9632;" );
@@ -114,7 +114,7 @@ jQuery( document ).ready( function( $ ) {
 		// SETUP - initial page load
 		// hide all slides but the first one
 		// ---------------------------------
-		var allSlides = $( '.slide-list > li' ); // get all slides in easy array format
+		var allSlides = $( '.ss2-slide-list > li' ); // get all slides in easy array format
 
 		allSlides.hide(); // hide all slides
 
@@ -134,7 +134,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function slideForward() {
 		// get all slides
-		var allSlides = $( '.slide-list > li' );
+		var allSlides = $( '.ss2-slide-list > li' );
 
 		// add 1 to currentSlide global
 		//     make sure it is not max, or wrap around to 0
@@ -179,7 +179,7 @@ jQuery( document ).ready( function( $ ) {
 	function slideBackward() {
 		//console.log("----")
 		// get all slides
-		var allSlides = $( '.slide-list > li' );
+		var allSlides = $( '.ss2-slide-list > li' );
 
 		// subtract 1 from currentSlide global
 		//     make sure it is not 0, or wrap around to max
@@ -227,7 +227,7 @@ jQuery( document ).ready( function( $ ) {
 		// test if current is within bounds
 		if ( newSlide >= 0 && newSlide <= SLIDE_MAX) {
 
-			var allSlides = $( '.slide-list > li' );
+			var allSlides = $( '.ss2-slide-list > li' );
 
 			// hide all slides
 			allSlides.hide();
@@ -267,7 +267,7 @@ jQuery( document ).ready( function( $ ) {
 	 *  Goes back a single slide.
 	 *
 	 */
-	$( '.arrow-left' ).click(function(){
+	$( '.ss2-arrow-left' ).click(function(){
 		// stop the sliding action
 		clearInterval(slideAction);
 		
@@ -284,7 +284,7 @@ jQuery( document ).ready( function( $ ) {
 	 *  Goes forward a single slide.
 	 *
 	 */
-	$( '.arrow-right' ).click(function(){
+	$( '.ss2-arrow-right' ).click(function(){
 		// stop the sliding action
 		clearInterval(slideAction);
 		
@@ -323,9 +323,9 @@ jQuery( document ).ready( function( $ ) {
 	 *  	document ready.
 	 *
 	 */
-	$( '.cs-dots' ).on("click", "ul li", function(event) { 
+	$( '.ss2-nav-dots' ).on("click", "ul li", function(event) { 
 		// get dots ul li
-		var dots = $( '.cs-dots ul li ');
+		var dots = $( '.ss2-nav-dots ul li ');
 
 		// stall sliding action
 		clearInterval(slideAction);

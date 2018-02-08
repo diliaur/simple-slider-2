@@ -137,9 +137,9 @@ class simple_slider_2_widget extends WP_Widget {
 		//////////////
 
 		?>
-		<div class="cseasss-container-slider">
-			<div class="cseasss-container-slides">
-				<ul class="slide-list">
+		<div class="ss2-container-slider">
+			<div class="ss2-container-slides">
+				<ul class="ss2-slide-list">
 					<?php
 					$args = array(
 						'category_name' => $categories,
@@ -152,15 +152,15 @@ class simple_slider_2_widget extends WP_Widget {
 						if ( has_post_thumbnail() && (strtotime(get_the_date()) > strtotime($time_frame)) ) { // if in this order, # slides is impacted.
 						?>
 							<li>
-								<div class="title-and-date">
-									<span class="title"><a href=<?php the_permalink(); ?>><?php the_title(); ?></a></span>
-									<span class="date"><?php echo get_the_date(); ?></span>
+								<div class="ss2-title-and-date">
+									<span class="ss2-title"><a href=<?php the_permalink(); ?>><?php the_title(); ?></a></span>
+									<span class="ss2-date"><?php echo get_the_date(); ?></span>
 								</div>
-								<div class="categories"><?php the_category(); ?></div>
+								<div class="ss2-categories"><?php the_category(); ?></div>
 								<a href=<?php the_permalink(); ?>>
 									<?php the_post_thumbnail(null, array( 'class' => 'current-slide-img' )); ?>
 								</a>
-								<div class="excerpt"><?php the_excerpt(); ?></div>
+								<div class="ss2-excerpt"><?php the_excerpt(); ?></div>
 							</li>
 						<?php 
 						} else {
@@ -170,15 +170,15 @@ class simple_slider_2_widget extends WP_Widget {
 					wp_reset_postdata(); // since used the_post()
 					?>
 				</ul>
-				<div class="slide-nav">
-					<div class="arrow-left"><</div>
-					<div class="cs-dots"></div>
-					<div class="arrow-right">></div>
-					<div class="clearfix-dt"></div>
+				<div class="ss2-slide-nav">
+					<div class="ss2-arrow-left"><</div>
+					<div class="ss2-nav-dots"></div>
+					<div class="ss2-arrow-right">></div>
+					<div class="ss2-clearfix"></div>
 				</div>
 			</div>
-			<div class="container-titles"></div>
-			<div class="clearfix-dt"></div>
+			<div class="ss2-container-titles"></div>
+			<div class="ss2-clearfix"></div>
 		</div><!--end slider container-->
 		<?php
 		//////////////
