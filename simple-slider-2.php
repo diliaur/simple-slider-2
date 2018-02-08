@@ -19,7 +19,7 @@ class simple_slider_2_widget extends WP_Widget {
 	public function __construct() {
 		$widget_options = array(
 			'classname' => 'simple_slider_2_widget',
-			'description' => 'this is the second slider and it is killing me'
+			'description' => 'A featured images-, category-based post slider.'
 		);
 		parent::__construct('simple_slider_2_widget','Simple Slider 2.0 Widget', $widget_options);
 	}
