@@ -22,6 +22,8 @@ Just download the repo and unzip it into your Plugins directory. Activate it, se
 
 ## Done
 
+...
+
 ## Issues
 
 Note: Because this is a rehash of an older slider, it may still have some of the same issues. However, the modification of the slider into a widget may have resolved some issues. They have not been examined yet so can't be ruled out, but because *this* version hasn't been tested in the same way, the issues also won't be ported here. You can read about the previous slider's issues in its [readme](https://github.com/diliaur/simple-slider).
@@ -30,6 +32,6 @@ Note: Because this is a rehash of an older slider, it may still have some of the
 - Looks wonky at lower resolutions and on mobile. Need a way to collapse titles underneath slide images. This will be on the todo list.
 
 ### Issues from Old Version to Check out
-- JS or CSS throws off behavior of *other* sliders when plugin is active
+- JS or CSS throws off behavior of *other* slider plugins when this plugin is active
 - Strange behavior when shortcode used in non-widget areas. Currently don't have a shortcode, so maybe this will be moot
 - jQuery selectors don't allow for multiple iterations of the slider on one page
