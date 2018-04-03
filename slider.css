@@ -97,7 +97,7 @@ div {
 	list-style: none;
 	margin: 0px;
 	padding: 1px 5px;
-	background-color: #ec4838;
+	background-color: #000; /* poor contrast: #ec4838; */
 	text-transform: uppercase;
 }
 .ss2-categories a:link, .ss2-categories a:visited, .ss2-categories a:hover, .ss2-categories a:active {

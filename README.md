@@ -13,6 +13,8 @@ Just download the repo and unzip it into your Plugins directory. Activate it, se
 
 ## To Do
 
+- [] allow toggle of categories displayed on image
+- [] allow choice of label color of categories displayed on image
 - [] Change HTML and CSS in accordance with correct plugin slug
 - [] Title font sizes shrink/grow depending on # of slides
 - [] Breakpoint - point at which titles collapse underneath the slider (for mobile mostly) (let user decide this? hmm)
@@ -31,7 +33,7 @@ Note: Because this is a rehash of an older slider, it may still have some of the
 - PHP strtotime() _may_ cause wonky behavior in choosing the time frame, but this is yet to be seen. The time frame is not meant to be super precise, however. It is mostly intended to keep too-old posts from resurfacing.
 - Looks wonky at lower resolutions and on mobile. Need a way to collapse titles underneath slide images. This will be on the todo list.
 
-### Issues from Old Version to Check out
+### Issues from _Old Version_ to Check out
 - JS or CSS throws off behavior of *other* slider plugins when this plugin is active
 - Strange behavior when shortcode used in non-widget areas. Currently don't have a shortcode, so maybe this will be moot
 - jQuery selectors don't allow for multiple iterations of the slider on one page
