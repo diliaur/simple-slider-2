@@ -11,6 +11,7 @@ jQuery( document ).ready( function( $ ) {
 	//console.log ("SLIDE_MAX -> " + SLIDE_MAX);
 	var allSlideTitles = $( '.ss2-slide-list > li .ss2-title-and-date' ); // keeping this out here so others can use it
 	var currentSlide = 0; // begins at 0
+	var slideTime = 10000; // time ea slide displays in ms
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 *																		   *
@@ -275,7 +276,7 @@ jQuery( document ).ready( function( $ ) {
 		slideBackward();
 
 		// restart the sliding action
-		slideAction = setInterval(slideForward,3000);
+		slideAction = setInterval(slideForward,slideTime);
 	});
 	
 	/**
@@ -292,7 +293,7 @@ jQuery( document ).ready( function( $ ) {
 		slideForward();
 
 		// restart sliding action
-		slideAction = setInterval(slideForward,3000);
+		slideAction = setInterval(slideForward,slideTime);
 	});
 	
 	/** 
@@ -307,7 +308,7 @@ jQuery( document ).ready( function( $ ) {
 			clearInterval(slideAction);
 			$('.pause').text("unpause");
 		} else {
-			slideAction = setInterval(slideForward,3000);
+			slideAction = setInterval(slideForward,slideTime);
 			$('.pause').text("pause");
 		}
 	});
@@ -340,7 +341,7 @@ jQuery( document ).ready( function( $ ) {
 		slideJumpTo(nextSlide);
 
 		// restart sliding action - should take care of the dot change too
-		slideAction = setInterval(slideForward,3000);
+		slideAction = setInterval(slideForward,slideTime);
 	});
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -360,7 +361,7 @@ jQuery( document ).ready( function( $ ) {
 	slideSetup(); // this comes before setTitleHeights() for correct calculations
 	setTitleHeights();
 	manipulateDots();
-	var slideAction = setInterval(slideForward, 3000);
+	var slideAction = setInterval(slideForward, slideTime);
 
 	/** 
 	 *
