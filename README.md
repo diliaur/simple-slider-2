@@ -10,7 +10,7 @@ This slider is based off my [original slider](https://github.com/diliaur/simple-
 
 ## To Install
 
-Download thisrepository and unzip it into your Plugins directory. Activate it, set up the options in the widget area of the dashboard, and off you go.
+Download this repository and unzip it into your Plugins directory. Activate it, set up the options in the widget area of the dashboard, and off you go.
 
 ## To Do
 
