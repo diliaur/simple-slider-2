@@ -14,14 +14,15 @@ Download this repository and unzip it into your Plugins directory. Activate it, 
 
 ## To Do
 
-- [] allow toggle of categories displayed on image
-- [] allow choice of label color of categories displayed on image
-- [] Change HTML and CSS in accordance with correct plugin slug
-- [] Title font sizes shrink/grow depending on # of slides
-- [] Breakpoint - point at which titles collapse underneath the slider (for mobile mostly) (let WP user decide this? hmm)
-- [] Add shortcode back so people can use the slider in posts (if they want)
-- [] Add shortcode options to echo widget options
-- [] Toggle titles (e.g. just have photo + excerpt, vs full titles) - might make more sense for ppl who want to use the slider within a page (will need to modify shortcode for options)
+- [ ] allow toggle of categories displayed on image
+- [ ] allow choice of label color of categories displayed on image
+- [ ] Change HTML and CSS in accordance with correct plugin slug
+- ~[] Title font sizes shrink/grow depending on # of slides~
+- [ ] Breakpoint - point at which titles collapse underneath the slider (for mobile mostly) (let WP user decide this? hmm)
+- [ ] Let user decide the slide duration
+- [ ] Add shortcode back so people can use the slider in posts (if they want)
+- [ ] Add shortcode options to echo widget options
+- [ ] Toggle titles (e.g. just have photo + excerpt, vs full titles) - might make more sense for ppl who want to use the slider within a page (will need to modify shortcode for options)
 
 ## Done
 

@@ -1,6 +1,6 @@
-<?php 
+<?php
 /*
-Plugin Name: Simple Slider 2 
+Plugin Name: Simple Slider 2
 Plugin URI: https://github.com/diliaur/simple-slider-2
 Description: A post slider based upon categories and featured image. Lets you choose time frame for posts to display and max number of post slots.
 Version: 1.0
@@ -41,9 +41,9 @@ class simple_slider_2_widget extends WP_Widget {
 		<!-- TITLE -->
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_attr_e( 'Title:', 'simple-slider-2' ); ?></label>
-			<input class="widefat" 
-				type="text" 
-				id="<?php echo $this->get_field_id('title'); ?>" 
+			<input class="widefat"
+				type="text"
+				id="<?php echo $this->get_field_id('title'); ?>"
 				name="<?php echo esc_attr($this->get_field_name('title')); ?>"
 				value="<?php echo $title; ?>">
 		</p>
@@ -137,6 +137,7 @@ class simple_slider_2_widget extends WP_Widget {
 		//////////////
 
 		?>
+
 		<div class="ss2-container-slider">
 			<div class="ss2-container-slides">
 				<ul class="ss2-slide-list">
@@ -162,11 +163,11 @@ class simple_slider_2_widget extends WP_Widget {
 								</a>
 								<div class="ss2-excerpt"><?php the_excerpt(); ?></div>
 							</li>
-						<?php 
+						<?php
 						} else {
 							//echo "sorry, this post is too old to show<br/>";
 						}
-					endwhile; 
+					endwhile;
 					wp_reset_postdata(); // since used the_post()
 					?>
 				</ul>
@@ -181,6 +182,7 @@ class simple_slider_2_widget extends WP_Widget {
 			<div class="ss2-clearfix"></div>
 		</div><!--end slider container-->
 		<?php
+		
 		//////////////
 
 	}
