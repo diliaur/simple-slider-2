@@ -49,7 +49,7 @@ jQuery( document ).ready( function( $ ) {
 		/*
 		 * Check for width of screen, and place titles underneath
 		 * the slides instead.
-		 * 
+		 *
 		 * THIS DOESN'T WORK - JAN 22, 2018
 		 */
 		var minWindowWidth = 1000;
@@ -121,7 +121,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// show the first (is first because currentSlide is initialized to 0)
 		allSlides.eq(currentSlide).show();
-		
+
 		allSlideTitles.eq(currentSlide).addClass( 'current' ); // highlight the first title
 
 		manipulateDots(currentSlide); // setup initial dot to be filled
@@ -165,7 +165,7 @@ jQuery( document ).ready( function( $ ) {
 		setTitleHeights();
 	}
 
-	/** 
+	/**
 	 *
 	 * Retreat slides by 1
 	 * modifies currentSlide global
@@ -173,7 +173,7 @@ jQuery( document ).ready( function( $ ) {
 	 *       e.g. from the first to the last when going around, or sometimes
 	 *       in the middle. need to check if this repeats on other machines.
 	 *       may not be an issue, since this method will be used once at a time
-	 *       when arrows are clicked, and not for continuous motion like 
+	 *       when arrows are clicked, and not for continuous motion like
 	 *       slideForward()
 	 *
 	 */
@@ -204,10 +204,10 @@ jQuery( document ).ready( function( $ ) {
 			allSlideTitles.eq(currentSlide+1).removeClass( 'current' );
 			//console.log("remove from " + (currentSlide+1));
 		}
-		
+
 		// show current slide title
 		allSlideTitles.eq(currentSlide).addClass( 'current' );
-	
+
 		// change dot
 		manipulateDots(currentSlide,currentSlide+1);
 
@@ -220,7 +220,7 @@ jQuery( document ).ready( function( $ ) {
 	 *
 	 * Jump to any slide by given index
 	 * modifies currentSlide global
-	 * @param {newSlide} the slide to which the slider will jump when this 
+	 * @param {newSlide} the slide to which the slider will jump when this
 	 *                   method is called
 	 *
 	 */
@@ -245,14 +245,14 @@ jQuery( document ).ready( function( $ ) {
 			// update dot
 			//console.log("jump: current- " + newSlide + ", prev- " + currentSlide);
 
-			manipulateDots(newSlide,currentSlide); //next,prev as parameters 
+			manipulateDots(newSlide,currentSlide); //next,prev as parameters
 
 			currentSlide = newSlide; // finally, update currentSlide
 
 			// make sure titles are sized correctly to the image
 			// this accounts for variable height images
 			setTitleHeights();
-			
+
 		} // else do nothing
 	}
 
@@ -263,7 +263,7 @@ jQuery( document ).ready( function( $ ) {
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-	 * 
+	 *
 	 * LEFT ARROW CONTROL
 	 *  Goes back a single slide.
 	 *
@@ -271,14 +271,14 @@ jQuery( document ).ready( function( $ ) {
 	$( '.ss2-arrow-left' ).click(function(){
 		// stop the sliding action
 		clearInterval(slideAction);
-		
+
 		// go backward 1
 		slideBackward();
 
 		// restart the sliding action
 		slideAction = setInterval(slideForward,slideTime);
 	});
-	
+
 	/**
 	 *
 	 * RIGHT ARROW CONTROL
@@ -288,15 +288,15 @@ jQuery( document ).ready( function( $ ) {
 	$( '.ss2-arrow-right' ).click(function(){
 		// stop the sliding action
 		clearInterval(slideAction);
-		
+
 		// go forward 1
 		slideForward();
 
 		// restart sliding action
 		slideAction = setInterval(slideForward,slideTime);
 	});
-	
-	/** 
+
+	/**
 	 *
 	 * PAUSE
 	 *  Click event used for testing. Works on element with class 'pause'.
@@ -324,7 +324,7 @@ jQuery( document ).ready( function( $ ) {
 	 *  	document ready.
 	 *
 	 */
-	$( '.ss2-nav-dots' ).on("click", "ul li", function(event) { 
+	$( '.ss2-nav-dots' ).on("click", "ul li", function(event) {
 		// get dots ul li
 		var dots = $( '.ss2-nav-dots ul li ');
 
@@ -363,7 +363,7 @@ jQuery( document ).ready( function( $ ) {
 	manipulateDots();
 	var slideAction = setInterval(slideForward, slideTime);
 
-	/** 
+	/**
 	 *
 	 * WINDOW RESIZE
 	 *  Every time window resizes, check the slides height and assign it to
