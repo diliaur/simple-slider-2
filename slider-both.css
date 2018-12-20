@@ -126,6 +126,7 @@
 	.ss2-arrow-right:hover {
 	  background-color: #ccc;
 	  color: black;
+		cursor:pointer;
 	}
 	.ss2-nav-dots ul {
 	  display:flex;
@@ -137,6 +138,9 @@
 	.ss2-nav-dots ul li {
 	  flex-grow:1; /* this spreads them out which is better for mobile...
 	                  but need bigger icons to match */
+	}
+	.ss2-nav-dots ul li:hover {
+		cursor:pointer;
 	}
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -298,6 +302,7 @@
 	.ss2-arrow-right:hover {
 	  background-color: #ccc;
 	  color: black;
+		cursor:pointer;
 	}
 	.ss2-nav-dots ul {
 	  display:flex;
@@ -309,6 +314,9 @@
 	.ss2-nav-dots ul li {
 	  flex-grow:1; /* this spreads them out which is better for mobile...
 	                  but need bigger icons to match */
+	}
+	.ss2-nav-dots ul li:hover {
+		cursor:pointer;
 	}
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
