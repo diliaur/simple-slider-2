@@ -26,7 +26,7 @@
 .ss2-container-slider {
 	box-sizing: border-box;
   display: flex;
-  flex-direction: column-reverse; /* inner slides reset this to col */
+  flex-direction: column; /* inner slides reset this to col */
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

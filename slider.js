@@ -104,6 +104,29 @@ jQuery( document ).ready( function( $ ) {
 		//console.log("dots: current- " + current + ", prev- " + previous);
 	}
 
+/*
+ * Determines whether to hide all the titles or to calculate their height.
+ * Based on window width.
+ * Note: this means that title switching action will not work for the small layout
+ *       on large devices & the breakpoint switchoff must be perfect.
+ * @param {number} window_width The current width of the window in pixels
+ */
+function titleSetup(window_width) {
+	if (window_width <= 991) { // Bootstrap 4 md screens are >= 992
+		// small & xsmall devices
+
+		// hide all titles
+		let allTitles = $( '.ss2-container-titles > div' );
+		allTitles.hide();
+
+		// show current one
+		allTitles.eq(currentSlide).show();
+
+	} else {
+		// medium + up devices
+		setTitleHeights();
+	}
+}
 	/**
 	 *
 	 * Sets up the slides to begin sliding motion -- hides all slides but the
@@ -162,7 +185,8 @@ jQuery( document ).ready( function( $ ) {
 
 		// make sure titles are sized correctly to the image
 		// this accounts for variable height images
-		setTitleHeights();
+		// setTitleHeights();
+		titleSetup($(window).width());
 	}
 
 	/**
@@ -213,7 +237,8 @@ jQuery( document ).ready( function( $ ) {
 
 		// make sure titles are sized correctly to the image
 		// this accounts for variable height images
-		setTitleHeights();
+		// setTitleHeights();
+		titleSetup($(window).width());
 	}
 
 	/**
@@ -251,7 +276,8 @@ jQuery( document ).ready( function( $ ) {
 
 			// make sure titles are sized correctly to the image
 			// this accounts for variable height images
-			setTitleHeights();
+			// setTitleHeights();
+			titleSetup($(window).width());
 
 		} // else do nothing
 	}
@@ -359,7 +385,7 @@ jQuery( document ).ready( function( $ ) {
 	generateDots();
 	populateTitles();
 	slideSetup(); // this comes before setTitleHeights() for correct calculations
-	setTitleHeights();
+	titleSetup($( window ).width());
 	manipulateDots();
 	var slideAction = setInterval(slideForward, slideTime);
 
@@ -371,6 +397,7 @@ jQuery( document ).ready( function( $ ) {
 	 *
 	 */
 	$( window ).resize( function() {
-		setTitleHeights();
+		// setTitleHeights();
+		titleSetup($(window).width());
 	});
 });
