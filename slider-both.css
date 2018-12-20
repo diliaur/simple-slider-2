@@ -164,36 +164,46 @@
 /* FOR MEDIUM TO LARGE DEVICES */
 @media (min-width: 992px) {
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
+	 *			                                                                     *
+	 *                             Slides UL resets                              *
+	 *                                                                           *
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	.ss2-slide-list { /* list with slide categories, img, and excerpts */
+		list-style: none;
+		padding: 0; margin: 0;
+		position: relative;
+	}
+	.ss2-slide-list li .ss2-categories { /* categories */
+		position: absolute;
+		top: 0; left: 0;
+		z-index: 90;
+	}
+	.ss2-slide-list li img { /* slide image */
+		/* float: left; /* in order for image to go under categories */ */
+		/* z-index: 89; */
+	}
+
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 *			                                                                     *
 	 *                                Page setup                                 *
 	 *                                                                           *
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	div {
-		box-sizing: border-box;
-	}
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
-	 *                               Containers                                  *
-	 *                                                                           *
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	.container { /* bootstrap mod to match theme conditions */
-		max-width: 1140px;
-	}
 	.ss2-container-slider {
-		width: 100%;
-		background-color: #eee;
-		overflow: hidden;
+	  width:100%;
+		box-sizing: border-box;
+	  display: flex;
+	  flex-direction: row;
 	}
+
 	.ss2-container-slides {
-		width: 75%;
-		float: left;
-		overflow: hidden;
-		position: relative; /* needed for abs posititioning of children */
+		width:75%; /* forces resize */
+	}
+	.ss2-container-titles {
+	  width:25%;  /* forces resize */
 	}
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
+	 *			                                                                     *
 	 *                                 Image                                     *
 	 *                                                                           *
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -203,39 +213,125 @@
 	}
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
+	 *			                                                                     *
+	 *                                 Slides                                    *
+	 *                                                                           *
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+	/*
+	 * DISPLAY DIRECTION: Categories, image, excerpt
+	 * This is the default but just reinforcing it... I guesss
+	 **********************/
+
+	ul.ss2-slide-list li {
+	  display:flex;
+	  flex-direction: column;
+	}
+
+	/*
+	 * CATEGORIES
+	 **************/
+
+	ul.post-categories {
+	  display:flex;
+	  flex-direction: row;
+	  list-style: none;
+	  padding:0;
+	  margin:0;
+	  font-size: 12px;
+	}
+	ul.post-categories li {
+	  background-color: black;
+	  color: white;
+		padding: 1px 5px;
+		text-transform: uppercase;
+	  margin: 0 2px 0 0;
+	}
+	ul.post-categories a:link,
+	ul.post-categories a:visited,
+	ul.post-categories a:hover,
+	ul.post-categoriess a:active {
+		color: #fff;
+	}
+
+	/*
+	 * EXCERPT
+	 ***********/
+
+	.ss2-excerpt {
+	  background-color: #000;
+	  color: #fff;
+	  padding: 5px;
+	}
+	.ss2-excerpt p {
+	  /* wordpress adds a <p> tag we need to compensate for */
+		padding: 0; margin: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 16px;
+	}
+
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 *			                                                                     *
 	 *                        Navigation (arrows, dots)                          *
 	 *                                                                           *
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	.ss2-arrow-left, .ss2-arrow-right, .ss2-nav-dots {
-		float: left;
-		text-align: center;
+
+	.ss2-slide-nav {
+	  display:flex;
+	  flex-direction: row;
 	}
-	.ss2-arrow-left {
-		width:10%;
+	.ss2-slide-nav .ss2-arrow-left,
+	.ss2-slide-nav .ss2-arrow-right {
+	  flex-grow:1;
 	}
-	.ss2-arrow-left:hover, .ss2-arrow-right:hover {
-		background-color: #ccc;
-		color: #000;
-	}
-	.ss2-arrow-right {
-		width:10%;
-	}
-	.ss2-nav-dots {
-		width:80%;
-		background-color: #ccc;
-	}
-	.ss2-nav-dots ul {
-		list-style-type: none;
-		padding: 0; margin: 0;
-	}
-	.ss2-nav-dots ul li {
-		display: inline;
+	.ss2-slide-nav .ss2-nav-dots {
+	  flex-grow:2;
 	}
 	.ss2-arrow-left, .ss2-arrow-right, .ss2-nav-dots {
-		font-size: 15px;
+	  text-align:center;
 		color: #ccc;
 		background-color: #000;
+	}
+	.ss2-arrow-left:hover,
+	.ss2-arrow-right:hover {
+	  background-color: #ccc;
+	  color: black;
+	}
+	.ss2-nav-dots ul {
+	  display:flex;
+	  flex-direction: row;
+	  list-style:none;
+	  padding:0;
+	  margin:0;
+	}
+	.ss2-nav-dots ul li {
+	  flex-grow:1; /* this spreads them out which is better for mobile...
+	                  but need bigger icons to match */
+	}
+
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 *			                                                                     *
+	 *                                  Titles                                   *
+	 *                                                                           *
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+	.ss2-title-and-date {
+	  background-color:white;
+	  overflow:hidden; /* for the inevitable overlap due to long titles */
+	  display:flex;
+	  flex-direction:column;
+	  padding-left: 1em;
+	  border-bottom:1px solid #ddd;
+	}
+	.current { /* Highlighted title tab styling */
+		background-color: #ddd;
+		color: #000;
+	}
+	.ss2-date {
+		font-size: 10px;
+		text-transform: uppercase;
 	}
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -247,123 +343,4 @@
 		clear:both;
 	}
 
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
-	 *                                Categories                                 *
-	 *                                                                           *
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	.ss2-categories ul.post-categories {
-		margin: 0;
-		padding: 0;
-		font-size: 12px;
-	}
-	.ss2-categories ul.post-categories li {
-		display: inline;
-		list-style: none;
-		margin: 0px;
-		padding: 1px 5px;
-		background-color: #000; /* poor contrast: #ec4838; */
-		text-transform: uppercase;
-	}
-	.ss2-categories a:link, .ss2-categories a:visited, .ss2-categories a:hover, .ss2-categories a:active {
-		color: #fff!important; /* force the white on hover just here. hover is #ccc & being controlled in SOME stylestylesheet somewhere */
-	}
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
-	 *                                Excerpt                                    *
-	 *                                                                           *
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	.ss2-excerpt {
-		background-color: #000;
-		color: #fff;
-		padding: 5px;
-	}
-	.ss2-excerpt p {
-		padding: 0; margin: 0; /* wordpress adds a <p> tag we need to compensate for */
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis; /* for graceful truncation DOESN"T WORK */
-		font-size: 16px;
-		display:block;
-		width:100%;
-	}
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
-	 *                                  Titles                                   *
-	 *                                                                           *
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	.ss2-container-titles {
-		width: 25%;
-		float: left;
-		background-color: #fff;
-		/* height needs to be contingent upon .ss2-container-slides height */
-	}
-	.ss2-container-titles-no-float { /* for toggle when window resizes below break-point */
-		width: 100%;
-		float: none;
-		background-color: #fff;
-	}
-	.on-slide-title {
-		display:none;
-	}
-	.ss2-title-and-date {
-		margin-left: 5px; /* no right margin so it's flush with any layout */
-		padding: 5px;
-		border-bottom: 1px solid #eee;
-		overflow: hidden; /* just in case title is too long */
-	}
-	.ss2-title-and-date span {
-		display: block;
-	}
-	.ss2-title-and-date .title {
-		font-size: 14px;
-		word-wrap: break-word!important;
-	}
-	.ss2-date {
-		font-size: 10px;
-		text-transform: uppercase;
-	}
-	.current { /* Highlighted title tab styling */
-		background-color: #eee;
-		color: #000;
-	}
-	.prev {
-		/*background-color: green;*/
-	}
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
-	 *                             Slides ul resets                              *
-	 *                                                                           *
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	.ss2-slide-list {
-		list-style: none;
-		padding: 0; margin: 0;
-		position: relative;
-	}
-	.ss2-slide-list li .ss2-categories {
-		position: absolute;
-		top: 0; left: 0;
-		z-index: 90;
-	}
-	.ss2-slide-list li img {
-		float: left; /* in order for image to go under categories */
-		z-index: 89;
-	}
-
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 *			                                                                 *
-	 *           Pause "button" (applied to a span added when testing)           *
-	 *                                                                           *
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-	.pause {
-		padding: 5px;
-		background-color: #ccc;
-		border-top: 1px solid #fff;
-		border-left: 1px solid #eee;
-		border-right: 1px solid #888;
-		border-bottom: 1px solid #666;
-	}
 }
