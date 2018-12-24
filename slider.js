@@ -10,6 +10,7 @@ jQuery( document ).ready( function( $ ) {
 	var SLIDE_MAX = NUM_SLIDES - 1;
 	//console.log ("SLIDE_MAX -> " + SLIDE_MAX);
 	var allSlideTitles = $( '.ss2-slide-list > li .ss2-title-and-date' ); // keeping this out here so others can use it
+	var allSlideTitlesClone = allSlideTitles.clone(); // a copy for the large size
 	var currentSlide = 0; // begins at 0
 	var slideTime = 10000; // time ea slide displays in ms
 
@@ -23,7 +24,7 @@ jQuery( document ).ready( function( $ ) {
 	 * Based on the slides, populate the title container div with titles
 	 */
 	function populateTitles() {
-		$( '.ss2-container-titles' ).append(allSlideTitles); // move allSlideTitles to target div
+		$( '.ss2-container-titles' ).append(allSlideTitlesClone); // move allSlideTitles to target div
 	}
 
 	/**
@@ -34,15 +35,18 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function setTitleHeights() {
 
-		var slideContainerHeight = $( '.ss2-container-slides' ).height(); // direct height grab
+		var slideContainerHeight = $( '.ss2-slide-list' ).height() + $( '.ss2-slide-nav' ).height();
+
+		console.log(slideContainerHeight);
 		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders (should be v small)
 		var indivTitleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
 		// assign height to title element class
 		// use innerheight because it takes padding into consideration
-		$( '.ss2-title-and-date' ).innerHeight(indivTitleHeight);
+		$( '.ss2-container-titles .ss2-title-and-date' ).innerHeight(indivTitleHeight);
 
-		allSlideTitles.show(); // re-visibilize if coming back up from small screen layout
+		// re-visibilize if coming back up from small screen layout
+		allSlideTitlesClone.show();
 	}
 
 	/**
@@ -94,15 +98,16 @@ jQuery( document ).ready( function( $ ) {
  * @param {number} window_width The current width of the window in pixels
  */
 function titleSetup(window_width) {
+	allSlideTitles.hide() // this group should always be hidden -- only show current one (below)
+
 	if (window_width <= 991) { // Bootstrap 4 md screens are >= 992
 		// small & xsmall devices
 
-		// hide all titles
-		let allTitles = $( '.ss2-container-titles > div' );
-		allTitles.hide();
+		// hide all side titles
+		allSlideTitlesClone.hide()
 
-		// show current one
-		allTitles.eq(currentSlide).show();
+		// show current on-image one
+		allSlideTitles.eq(currentSlide).show();
 
 	} else {
 		// medium + up devices
