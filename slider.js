@@ -38,29 +38,11 @@ jQuery( document ).ready( function( $ ) {
 		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders (should be v small)
 		var indivTitleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
-
-		//console.log('direct title height:' + (indivTitleHeight * NUM_SLIDES));
-		//console.log('direct container height: ' + slideContainerHeight);
-
 		// assign height to title element class
 		// use innerheight because it takes padding into consideration
 		$( '.ss2-title-and-date' ).innerHeight(indivTitleHeight);
 
-		/*
-		 * Check for width of screen, and place titles underneath
-		 * the slides instead.
-		 *
-		 * THIS DOESN'T WORK - JAN 22, 2018
-		 */
-		var minWindowWidth = 1000;
-
-		if ( $( window ).width() < minWindowWidth ) {
-			//$( 'div.ss2-container-titles' ).addClass( 'ss2-container-titles-no-float' );
-			//$( 'div.ss2-container-titles' ).removeClass( 'ss2-container-titles' );
-		} else {
-			//$( 'div.ss2-container-titles' ).addClass( 'ss2-container-titles' );
-			//$( 'div.ss2-container-titles' ).removeClass( 'ss2-container-titles-no-float' );
-		}
+		allSlideTitles.show(); // re-visibilize if coming back up from small screen layout
 	}
 
 	/**
