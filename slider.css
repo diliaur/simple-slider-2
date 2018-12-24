@@ -128,33 +128,40 @@ ul.post-categoriess a:active {
 }
 
 @media (max-width: 991px) {
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                                Page setup                                 *
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.ss2-container-slider {
-box-sizing: border-box;
-display: flex;
-flex-direction: column; /* inner slides reset this to col */
-}
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                                  Titles                                   *
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  *                                Page setup                                 *
+  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+  .ss2-container-slider {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* inner slides reset this to col */
+  }
+  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  *                                  Titles                                   *
+  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.ss2-container-titles {
-  /* background-color: rgba(0,255,255,0.75); */
+  .ss2-container-titles {
+    /* background-color: rgba(0,255,255,0.75); */
+    /* position:relative; */
+  }
+  .ss2-title-and-date {
+    display:flex;
+    flex-direction: column; /* makes date fall under title */
+    position:absolute;
+    top:1em;left:0;
+    background-color: rgba(255,255,255,0.8);
+    padding:0.5em;
+    line-height:2em;
+  }
+  .ss2-title-and-date .ss2-title {
+    font-size: 2em;
+    font-weight:bold;
+  }
+  .ss2-title-and-date .ss2-date {
+    text-transform:uppercase;
+    font-size:.8em;
+  }
 }
-.ss2-title-and-date {
-display:flex;
-flex-direction: column; /* makes date fall under title */
-}
-.ss2-title-and-date .ss2-title {
-font-size: 2em;
-}
-.ss2-title-and-date .ss2-date {
-text-transform:uppercase;
-}
-}
-
 @media (min-width: 992px) {
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
    *                                Page setup                                 *
