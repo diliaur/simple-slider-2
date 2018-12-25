@@ -8,6 +8,7 @@ jQuery( document ).ready( function( $ ) {
 
 	var NUM_SLIDES = $( '.ss2-slide-list > li' ).length;
 	var SLIDE_MAX = NUM_SLIDES - 1;
+	var MAX_TITLE_LENGTH = 50;
 	//console.log ("SLIDE_MAX -> " + SLIDE_MAX);
 	var allSlideTitles = $( '.ss2-slide-list > li .ss2-title-and-date' ); // keeping this out here so others can use it
 	var allSlideTitlesClone = allSlideTitles.clone(); // a copy for the large size
@@ -25,6 +26,23 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function populateTitles() {
 		$( '.ss2-container-titles' ).append(allSlideTitlesClone); // move allSlideTitles to target div
+	}
+
+	/**
+	 * Truncate titles which are too long. Only applies to side-col titles
+	 * for large view.
+	 */
+ 	function truncateTitles() {
+		let titleStrings = $( '.ss2-container-titles .ss2-title a' );
+
+		titleStrings.each(function(i,e){
+			console.log(e.textContent);
+			let title = e.textContent;
+			if ( title.length > MAX_TITLE_LENGTH ) {
+				title = title.substring(0,MAX_TITLE_LENGTH);
+				e.textContent = title + " . . ."; // add ellipsis
+			}
+		});
 	}
 
 	/**
@@ -110,6 +128,7 @@ function titleSetup(window_width) {
 
 	} else {
 		// medium + up devices
+		truncateTitles();
 		setTitleHeights();
 	}
 }
