@@ -1,9 +1,10 @@
 === Simple Slider 2 ===
 Contributors: diliaur
-Tags: slider, featured posts
-Tested up to: 4.9.3
+Donate link: https://cash.me/$diliaur
+Tags: slider, featured posts, responsive
+Tested up to: 5.0.2
 Requires PHP: 5.6
-Stable tag: 1.1
+Stable tag: trunk
 License: GNU GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -30,6 +31,12 @@ Features:
 4. Activate the plugin through the \"Plugins\" menu in WordPress.
 
 == Changelog ==
+
+= 2.0 =
+* Added responsive "mobile" (small) layout (no more breaking)
+* Title truncation
+* Updated to use flexbox
+* Redesigned navigation buttons
 
 = 0.1 =
 * Initial release.
