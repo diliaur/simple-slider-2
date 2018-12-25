@@ -172,9 +172,9 @@ class simple_slider_2_widget extends WP_Widget {
 					?>
 				</ul>
 				<div class="ss2-slide-nav">
-					<div class="ss2-arrow-left"><</div>
+					<div class="ss2-arrow-left"><i class="fa fa-arrow-left fa-2x"></i></div>
 					<div class="ss2-nav-dots"></div>
-					<div class="ss2-arrow-right">></div>
+					<div class="ss2-arrow-right"><i class="fa fa-arrow-right fa-2x"></i></div>
 					<div class="ss2-clearfix"></div>
 				</div>
 			</div>
@@ -230,6 +230,7 @@ function simple_slider_2_enqueue_scripts_styles() {
 	wp_enqueue_script( 'simple-slider-2-js', plugins_url( 'slider.js', __FILE__ ), array( 'jquery' ), date("h:i:s") ); // slider.js
 	// wp_enqueue_script( 'simple-slider-2-js', plugins_url( 'test.js', __FILE__ ), array( 'jquery' ), date("h:i:s") ); // slider.js
 	wp_enqueue_style( 'simple-slider-2-css', plugins_url( 'slider.css', __FILE__ ) );
+	wp_enqueue_style( 'ss2-font-awesome', plugins_url('lib/font-awesome-4.7.0/css/font-awesome.min.css',__FILE__) ); // font awesome icons
 }
 add_action( 'wp_enqueue_scripts', 'simple_slider_2_enqueue_scripts_styles' );
 ?>

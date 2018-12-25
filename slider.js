@@ -57,7 +57,7 @@ jQuery( document ).ready( function( $ ) {
 	function generateDots() {
 		$( '.ss2-nav-dots' ).append( "<ul>" );
 		for (var count = 0; count < NUM_SLIDES; count++) {
-			$( '.ss2-nav-dots ul' ).append( "<li>&#9633;</>" ); // UNICODE "White Circle" U+25CB
+			$( '.ss2-nav-dots ul' ).append( "<li><i class='fa fa-circle-o'></i></>" ); // UNICODE "White Circle" U+25CB
 		}
 	}
 
@@ -76,7 +76,7 @@ jQuery( document ).ready( function( $ ) {
 		var dots = $( '.ss2-nav-dots ul li' );
 
 		// use global to turn empty dot into filled dot
-		dots.eq(current).html( "&#9632;" );
+		dots.eq(current).html( "<i class='fa fa-circle'></i>" );
 
 		// check if previous needs to wrap (if it's bigger than max)
 		//     this is to adjust for when clicking previous arrow/going backward
@@ -85,7 +85,7 @@ jQuery( document ).ready( function( $ ) {
 		}
 
 		// turn previously filled dot to empty dot
-		dots.eq(previous).html( "&#9633;" );
+		dots.eq(previous).html( "<i class='fa fa-circle-o'></i>" );
 
 		//console.log("dots: current- " + current + ", prev- " + previous);
 	}
