@@ -37,7 +37,6 @@ jQuery( document ).ready( function( $ ) {
 
 		var slideContainerHeight = $( '.ss2-slide-list' ).height() + $( '.ss2-slide-nav' ).height();
 
-		console.log(slideContainerHeight);
 		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders (should be v small)
 		var indivTitleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
@@ -132,7 +131,7 @@ function titleSetup(window_width) {
 		// show the first (is first because currentSlide is initialized to 0)
 		allSlides.eq(currentSlide).show();
 
-		allSlideTitles.eq(currentSlide).addClass( 'current' ); // highlight the first title
+		allSlideTitlesClone.eq(currentSlide).addClass( 'current' ); // highlight the first title
 
 		manipulateDots(currentSlide); // setup initial dot to be filled
 	}
@@ -162,10 +161,10 @@ function titleSetup(window_width) {
 		allSlides.eq(currentSlide).show();
 
 		// hide prev slide title, e.g. slideTitles.eq(currentSlide-1)
-		allSlideTitles.eq(currentSlide-1).removeClass( 'current' );
+		allSlideTitlesClone.eq(currentSlide-1).removeClass( 'current' );
 
 		// show current slide title
-		allSlideTitles.eq(currentSlide).addClass( 'current' );
+		allSlideTitlesClone.eq(currentSlide).addClass( 'current' );
 
 		// advance dot
 		manipulateDots(currentSlide,currentSlide-1);
@@ -209,15 +208,15 @@ function titleSetup(window_width) {
 
 		// hide prev slide title, slideTitle.eq(currentSlide+1)
 		if (currentSlide == SLIDE_MAX) {
-			allSlideTitles.eq(0).removeClass( 'current' );
+			allSlideTitlesClone.eq(0).removeClass( 'current' );
 			//console.log("remove from " + 0);
 		} else {
-			allSlideTitles.eq(currentSlide+1).removeClass( 'current' );
+			allSlideTitlesClone.eq(currentSlide+1).removeClass( 'current' );
 			//console.log("remove from " + (currentSlide+1));
 		}
 
 		// show current slide title
-		allSlideTitles.eq(currentSlide).addClass( 'current' );
+		allSlideTitlesClone.eq(currentSlide).addClass( 'current' );
 
 		// change dot
 		manipulateDots(currentSlide,currentSlide+1);
@@ -249,10 +248,10 @@ function titleSetup(window_width) {
 			allSlides.eq(newSlide).show();
 
 			// first remove title class 'current' so no fancy math is needed later
-			allSlideTitles.eq(currentSlide).removeClass('current');
+			allSlideTitlesClone.eq(currentSlide).removeClass('current');
 
 			// update title highlight
-			allSlideTitles.eq(newSlide).addClass('current');
+			allSlideTitlesClone.eq(newSlide).addClass('current');
 
 			// update dot
 			//console.log("jump: current- " + newSlide + ", prev- " + currentSlide);
@@ -338,6 +337,7 @@ function titleSetup(window_width) {
 	 *
 	 */
 	$( '.ss2-nav-dots' ).on("click", "ul li", function(event) {
+
 		// get dots ul li
 		var dots = $( '.ss2-nav-dots ul li ');
 
@@ -348,8 +348,7 @@ function titleSetup(window_width) {
 		//     previously had assigned value to currentSlide, but that seemed
 		//     to mess up the movement of the dots... once used a separate var,
 		//     nextSlide, everything cleared up.
-		nextSlide = dots.index(event.target);
-		//console.log(nextSlide);
+		nextSlide = dots.index(event.currentTarget); // for some reason event.target stopped working
 
 		slideJumpTo(nextSlide);
 

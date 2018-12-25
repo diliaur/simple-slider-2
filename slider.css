@@ -87,6 +87,7 @@ ul.post-categoriess a:active {
   display:flex;
   flex-direction: row;
 	background-color: #000;
+  /* box-sizing: border-box; */
 }
 .ss2-slide-nav .ss2-arrow-left,
 .ss2-slide-nav .ss2-arrow-right {
@@ -98,6 +99,7 @@ ul.post-categoriess a:active {
 .ss2-arrow-left, .ss2-arrow-right, .ss2-nav-dots {
   text-align:center;
 	color: #ccc;
+  padding:.5em;
 }
 .ss2-arrow-left:hover,
 .ss2-arrow-right:hover {

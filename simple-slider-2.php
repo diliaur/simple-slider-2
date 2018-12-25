@@ -172,9 +172,9 @@ class simple_slider_2_widget extends WP_Widget {
 					?>
 				</ul>
 				<div class="ss2-slide-nav">
-					<div class="ss2-arrow-left"><i class="fa fa-arrow-left fa-2x"></i></div>
+					<div class="ss2-arrow-left"><i class="fa fa-chevron-left fa-2x"></i></div>
 					<div class="ss2-nav-dots"></div>
-					<div class="ss2-arrow-right"><i class="fa fa-arrow-right fa-2x"></i></div>
+					<div class="ss2-arrow-right"><i class="fa fa-chevron-right fa-2x"></i></div>
 					<div class="ss2-clearfix"></div>
 				</div>
 			</div>
