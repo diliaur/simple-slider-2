@@ -228,7 +228,6 @@ add_action('widgets_init', 'register_sslider2_widget');
  */
 function simple_slider_2_enqueue_scripts_styles() {
 	wp_enqueue_script( 'simple-slider-2-js', plugins_url( 'slider.js', __FILE__ ), array( 'jquery' ), date("h:i:s") ); // slider.js
-	// wp_enqueue_script( 'simple-slider-2-js', plugins_url( 'test.js', __FILE__ ), array( 'jquery' ), date("h:i:s") ); // slider.js
 	wp_enqueue_style( 'simple-slider-2-css', plugins_url( 'slider.css', __FILE__ ) );
 	wp_enqueue_style( 'ss2-font-awesome', plugins_url('lib/font-awesome-4.7.0/css/font-awesome.min.css',__FILE__) ); // font awesome icons
 }
